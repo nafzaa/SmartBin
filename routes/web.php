@@ -18,4 +18,6 @@ Route::get('/', function () {
 });
 
 // Dashboard
-// Route::get('/dashboard', );
+Route::get('/dashboard', function(){
+    return view('pages.dashboard');
+});
