@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ApplicationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 // dashboard
 Route::get('/home', [DashboardController::class, 'index'])->name('home')->middleware('auth');
+
+// Application - Apply
+Route::get('/application/apply', [ApplicationController::class, 'index'])->name('application.apply')->middleware('auth');
