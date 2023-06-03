@@ -362,13 +362,11 @@ h1, h2, h3, h4, h5, h6 {
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
-  padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
 }
 .header .toggle-sidebar-btn {
   font-size: 32px;
-  padding-left: 10px;
   cursor: pointer;
   color: #012970;
 }

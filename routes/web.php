@@ -16,11 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect(route('home'));
+})->middleware(['auth']);
 
+// login
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'loginStore'])->name('login.store')->middleware('guest');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
+// register
+Route::get('/register', [AuthController::class, 'register'])->name('register')->middleware('guest');
+Route::post('/register', [AuthController::class, 'registerStore'])->name('register.store')->middleware('guest');
 
-// das
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+// dashboard
+Route::get('/home', [DashboardController::class, 'index'])->name('home')->middleware('auth');
