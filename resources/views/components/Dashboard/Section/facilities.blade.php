@@ -1,7 +1,7 @@
 <div class="row">
     <div class="row">
         <div class="card">
-            <h1 class="m-2">Services</h1>
+            <h1 class="m-2">Facilities</h1>
             <div class="row">
                 <!-- COLLECTION Card -->
                 <div class="col-xxl-4 col-xl-12 mt-2">
@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Collection <span>| Today</span></h5>
+                            <h5 class="card-title">Landfill Management <span>| Today</span></h5>
 
                             <div class="d-flex align-items-center">
                                 <div
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">PC <span>| This Month</span></h5>
+                            <h5 class="card-title">Incinerator <span>| This Month</span></h5>
 
                             <div class="d-flex align-items-center">
                                 <div
@@ -99,7 +99,7 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Operation <span>| This Year</span></h5>
+                            <h5 class="card-title">Transfer Station <span>| This Year</span></h5>
 
                             <div class="d-flex align-items-center">
                                 <div
@@ -139,7 +139,7 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">MRB <span>| This Year</span></h5>
+                            <h5 class="card-title">LTP <span>| This Year</span></h5>
 
                             <div class="d-flex align-items-center">
                                 <div
@@ -179,7 +179,7 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">ES <span>| This Year</span></h5>
+                            <h5 class="card-title">MRF <span>| This Year</span></h5>
 
                             <div class="d-flex align-items-center">
                                 <div
@@ -193,7 +193,126 @@
 
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
+                </div>
+                <!-- End ENVIRONMENTAL SOLUTIONS Card -->
+
+                <!-- ENVIRONMENTAL SOLUTIONS Card -->
+                <div class="col-xxl-4 col-xl-12 mt-2">
+
+                    <div class="card info-card customers-card">
+
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                <li class="dropdown-header text-start">
+                                    <h6>Filter</h6>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Today</a></li>
+                                <li><a class="dropdown-item" href="#">This Month</a></li>
+                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Buy Back Center <span>| This Year</span></h5>
+
+                            <div class="d-flex align-items-center">
+                                <div
+                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>1244</h6>
+                                    <span class="text-danger small pt-1 fw-bold">12%</span> <span
+                                        class="text-muted small pt-2 ps-1">decrease</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End ENVIRONMENTAL SOLUTIONS Card -->
+
+                <!-- ENVIRONMENTAL SOLUTIONS Card -->
+                <div class="col-xxl-4 col-xl-12 mt-2">
+
+                    <div class="card info-card customers-card">
+
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                <li class="dropdown-header text-start">
+                                    <h6>Filter</h6>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Today</a></li>
+                                <li><a class="dropdown-item" href="#">This Month</a></li>
+                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Eco Green <span>| This Year</span></h5>
+
+                            <div class="d-flex align-items-center">
+                                <div
+                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>1244</h6>
+                                    <span class="text-danger small pt-1 fw-bold">12%</span> <span
+                                        class="text-muted small pt-2 ps-1">decrease</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End ENVIRONMENTAL SOLUTIONS Card -->
+
+                <!-- ENVIRONMENTAL SOLUTIONS Card -->
+                <div class="col-xxl-4 col-xl-12 mt-2">
+
+                    <div class="card info-card customers-card">
+
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                    class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                <li class="dropdown-header text-start">
+                                    <h6>Filter</h6>
+                                </li>
+
+                                <li><a class="dropdown-item" href="#">Today</a></li>
+                                <li><a class="dropdown-item" href="#">This Month</a></li>
+                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Anaerobic Digester <span>| This Year</span></h5>
+
+                            <div class="d-flex align-items-center">
+                                <div
+                                    class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>1244</h6>
+                                    <span class="text-danger small pt-1 fw-bold">12%</span> <span
+                                        class="text-muted small pt-2 ps-1">decrease</span>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -201,7 +320,7 @@
                 <!-- End ENVIRONMENTAL SOLUTIONS Card -->
             
                 <!-- SERVICES REPORTS -->
-                <div class="col-8">
+                {{-- <div class="col-8">
                     <div class="card">
 
                         <div class="filter">
@@ -292,11 +411,13 @@
                         </div>
 
                     </div>
-                </div>
+                </div> --}}
                 <!-- End SERVICES REPORT -->
+
                 <!-- Recent Activity -->
                 <div class="col-4"> 
                     <div class="card">
+                        <hr>
                         <div class="filter">
                             <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -311,17 +432,17 @@
                         </div>
 
                         <div class="card-body">
-                            <hr>
                             <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+
                             <div class="activity">
+
                                 <div class="activity-item d-flex">
                                     <div class="activite-label">32 min</div>
                                     <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                                     <div class="activity-content">
                                         Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
                                     </div>
-                                </div>
-                                <!-- End activity item-->
+                                </div><!-- End activity item-->
 
                                 <div class="activity-item d-flex">
                                     <div class="activite-label">56 min</div>
@@ -609,9 +730,10 @@
                     </div>
                 </div> --}}
                 <!-- End Top Selling -->
+                
                 <!-- Website Traffic -->
-                {{-- <div class="col-4">
-                    <div class="card">
+                {{-- <div class="col-4"> --}}
+                    {{-- <div class="card">
                         <div class="filter">
                             <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -686,8 +808,8 @@
                             </script>
 
                         </div>
-                    </div>
-                </div> --}}
+                    </div> --}}
+                {{-- </div> --}}
                 <!-- End Website Traffic -->
             </div>
         </div>

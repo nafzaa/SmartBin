@@ -10,4 +10,7 @@
   <section class="section dashboard">
     @include('components.Dashboard.Section.services')
   </section>
+  <section class="section dashboard">
+    @include('components.Dashboard.Section.facilities')
+  </section>
 </div>
