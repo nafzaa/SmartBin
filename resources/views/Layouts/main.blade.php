@@ -29,7 +29,9 @@
     <link href="{{asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+
+    @livewireStyles
 
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.2.0
@@ -46,7 +48,9 @@
     @include('components.Sidebar.sidebar')
 
     <!-- Main -->
-    @yield('content')
+    <main id="main" class="main">
+        @yield('content')
+    </main><!-- End #main -->
 
 
     <!-- Vendor JS Files -->
@@ -61,6 +65,8 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    @livewireScripts
 
 </body>
 
