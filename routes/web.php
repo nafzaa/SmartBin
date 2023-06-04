@@ -36,3 +36,5 @@ Route::get('/home', [DashboardController::class, 'index'])->name('home')->middle
 
 // Application - Apply
 Route::get('/application/apply', [ApplicationController::class, 'index'])->name('application.apply')->middleware('auth');
+// Application - List
+// Route::get('/application/list', [ApplicationController::class, 'index'])->name('application.apply')->middleware('auth');

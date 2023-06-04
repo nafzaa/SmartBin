@@ -95,10 +95,13 @@
         });
         
 
-        // Create a Tile Layer and add it to the map
-        var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        minZoom: '10'}).addTo(map);
+    var marker = L.marker(
+    [2.9474456729481906, 101.7231898563517],
+    { 
+        draggable: true,
+        title: "",
+        opacity: 0.75
+    });
 
         var marker = L.marker(
         [2.9474456729481906, 101.7231898563517],
