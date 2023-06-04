@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="forms-layouts.html">
+                    <a href="#">
                         <i class="bi bi-circle"></i><span>List</span>
                     </a>
                 </li>
@@ -32,7 +32,8 @@
                     </a>
                 </li>
             </ul>
-        </li><!-- End application Nav -->
+        </li>
+        <!-- End application Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#vendor-nav" data-bs-toggle="collapse" href="#">
@@ -45,7 +46,8 @@
                     </a>
                 </li>
             </ul>
-        </li><!-- End application Nav -->
+        </li>
+        <!-- End application Nav -->
 
 
 
