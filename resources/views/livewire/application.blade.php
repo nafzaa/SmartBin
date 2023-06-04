@@ -1,6 +1,6 @@
 <div>
   <div class="pagetitle">
-    <h1>Form Layouts</h1>
+    <h1>Application Form</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -18,39 +18,58 @@
 
             <!-- Vertical Form -->
             <form class="row g-3" wire:submit.prevent='store'>
-              <div class="col-12">
+              <div class="col-8">
                 <label for="inputNanme4" class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="inputfullname" wire:model='full_name'>
               </div>
-              <div class="col-12">
+              <div class="col-4">
                 <label for="inputNanme4" class="form-label">IC Number</label>
-                <input type="text" class="form-control" id="inputNanme4">
+                <input type="text" class="form-control" id="inputICnumber" wire:model='ic_number'>
               </div>
-              <div class="col-12">
+              <div class="col-4">
                 <label for="inputNanme4" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" id="inputNanme4">
+                <input type="text" class="form-control" id="inputPhoneNumber" wire:model='phone_number'>
+              </div>
+              <div class="col-8">
+                <label for="inputNanme4" class="form-label">Bin Type</label>
+                <input type="text" class="form-control" id="inputBinType" wire:model='bin_type'>
               </div>
               <div class="col-12">
-                <label for="inputNanme4" class="form-label">Bin Type</label>
-                <input type="text" class="form-control" id="inputNanme4">
+                <label for="applicationType" class="form-label">Application Type</label>
+                <select class="form-select" name="" id="applicationType" wire:model='application_type'>
+                  <option value="penggantian">Penggantian Tong Hilang</option>
+                  <option value="baru">Baru</option>
+                </select>
               </div>
               <div class="col-12">
                 {{-- IC --}}
                 {{-- <label for="inputNanme4" class="form-label">IC</label> --}}
                 <div class="row">
+
                   <div class="col-6">
                     <label for="icFront" class="form-label">IC (Front)</label>
-                    <div id="showImgFront">
-
-                    </div>
-                    <input class="form-control" type="file" id="icFront">
+                    {{-- <div id="showImgFront">
+                    </div> --}}
+                    @if($ic_front)
+                        <img src="{{$ic_front->temporaryUrl()}}" alt="Image Preview" style="max-width: 100px">
+                    @endif
+                    @error('ic_front')
+                      <div class="text-red-500">{{ $message }}</div>
+                    @enderror
+                    <input class="form-control" type="file" id="icFront" wire:model='ic_front'>
                   </div>
+
                   <div class="col-6">
                     <label for="icBack" class="form-label">IC (Back)</label>
-                    <div id="showImgBack">
-
-                    </div>
-                    <input class="form-control" type="file" id="icBack">
+                    {{-- <div id="showImgBack">
+                    </div> --}}
+                    @if($ic_back)
+                        <img src="{{$ic_front->temporaryUrl()}}" alt="Image Preview" style="max-width: 100px">
+                    @endif
+                    @error('ic_back')
+                      <div class="text-red-500">{{ $message }}</div>
+                    @enderror
+                    <input class="form-control" type="file" id="icBack" wire:model='ic_back'>
                   </div>
                 </div>
               </div>
@@ -61,15 +80,8 @@
                 <input class="form-control" type="file" id="billInput">
               </div>
               <div class="col-12">
-                <label for="applicationType" class="form-label">Application Type</label>
-                <select class="form-select" name="" id="applicationType">
-                  <option value="penggantian">Penggantian Tong Hilang</option>
-                  <option value="baru">Baru</option>
-                </select>
-              </div>
-              <div class="col-12">
                 <label for="pointLocation" class="form-label">Point Location</label>
-                <div id="applicationFormMap" style="width: 100%; height: 500px"></div>
+                <div id="applicationFormMap" style="width: 100%; height: 500px" wire:ignore></div>
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -87,7 +99,7 @@
 
 @push('js')
 
-<script>
+{{-- <script>
   // show image javascript
 
   let showImgFront = document.getElementById('showImgFront');
@@ -105,6 +117,7 @@
                         alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
       });
       reader.readAsDataURL(file);
+
     } else {
       showImgFront.innerHTML = '';
     }
@@ -124,9 +137,9 @@
       showImgBack.innerHTML = '';
     }
   });
-</script>
+</script> --}}
 
-<script>
+{{-- <script>
   // show bill javascript
   let showBill = document.getElementById('showBill');
   let billInput = document.getElementById('billInput');
@@ -145,7 +158,7 @@
       showBill.innerHTML = '';
     }
   });
-</script>
+</script> --}}
 
 <script>
   // Initialize the map and assign it to a variable for later use
