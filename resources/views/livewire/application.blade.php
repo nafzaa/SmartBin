@@ -129,7 +129,7 @@
       reader.addEventListener('load', function() {
         showImgFront.innerHTML = `<img
                         src="${this.result}"
-                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px">`;
+                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
       });
       reader.readAsDataURL(file);
     } else {
@@ -144,7 +144,7 @@
       reader.addEventListener('load', function() {
         showImgBack.innerHTML = `<img
                         src="${this.result}"
-                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px">`;
+                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
       });
       reader.readAsDataURL(file);
     } else {
