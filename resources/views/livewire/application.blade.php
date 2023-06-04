@@ -35,17 +35,18 @@
                 <input type="text" class="form-control" id="inputNanme4">
               </div>
               <div class="col-12">
-                <label for="inputNanme4" class="form-label">Photocopy of IC</label>
+                {{-- IC --}}
+                {{-- <label for="inputNanme4" class="form-label">IC</label> --}}
                 <div class="row">
                   <div class="col-6">
-                    <label for="icFront" class="form-label">Front</label>
+                    <label for="icFront" class="form-label">IC (Front)</label>
                     <div id="showImgFront">
 
                     </div>
                     <input class="form-control" type="file" id="icFront">
                   </div>
                   <div class="col-6">
-                    <label for="icBack" class="form-label">Back</label>
+                    <label for="icBack" class="form-label">IC (Back)</label>
                     <div id="showImgBack">
 
                     </div>
@@ -53,9 +54,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <label for="inputNanme4" class="form-label">Bill Image (Water/Electric/dll...)</label>
-                <input class="form-control" type="file" id="bill">
+              <div class="col-6">
+                {{-- BILL --}}
+                <label for="billInput" class="form-label">Bill Image (Water/Electric/dll...)</label>
+                <div id="showBill"></div>
+                <input class="form-control" type="file" id="billInput">
               </div>
               <div class="col-12">
                 <label for="applicationType" class="form-label">Application Type</label>
@@ -99,7 +102,7 @@
       reader.addEventListener('load', function() {
         showImgFront.innerHTML = `<img
                         src="${this.result}"
-                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px">`;
+                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
       });
       reader.readAsDataURL(file);
     } else {
@@ -114,33 +117,66 @@
       reader.addEventListener('load', function() {
         showImgBack.innerHTML = `<img
                         src="${this.result}"
-                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px">`;
+                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
       });
       reader.readAsDataURL(file);
     } else {
       showImgBack.innerHTML = '';
     }
   });
-
 </script>
 
 <script>
-  var map = L.map('applicationFormMap', {
-    center: [2.9474456729481906, 101.7231898563517],
-    zoom: 11
-  });
+  // show bill javascript
+  let showBill = document.getElementById('showBill');
+  let billInput = document.getElementById('billInput');
 
   var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}).addTo(map);
         
+  billInput.addEventListener('change', function() {
+    let file = this.files[0];
+    if (file) {
+      let reader = new FileReader();
+      reader.addEventListener('load', function() {
+        showBill.innerHTML = `<img
+                        src="${this.result}"
+                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
+      });
+      reader.readAsDataURL(file);
+    } else {
+      showBill.innerHTML = '';
+    }
+  });
+</script>
+
+<script>
+  // Initialize the map and assign it to a variable for later use
+  // there's a few ways to declare a VARIABLE in javascript.
+  // you might also see people declaring variables using `const` and `let`
+  var map = L.map('applicationFormMap', {
+      // Set latitude and longitude of the map center (required)
+      center: [2.9474456729481906, 101.7231898563517],
+      // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
+      zoom: 11
+  });
+  
   var marker = L.marker(
     [2.9474456729481906, 101.7231898563517],
-     { 
-        draggable: true,
-        title: "",
-        opacity: 0.75
-  });
-
-  marker.addTo(map).bindPopup("<p1><b>Alam Flora Sdn Bhd</b><br>Presint 15, 51A, 51B & 51C, Jln Diplomatik, 62050 Putrajaya.</p1>") .openPopup();
+    { 
+      draggable: true,
+      title: "",
+      opacity: 0.75
+    });
+  
+  var marker = L.marker(
+    [2.9474456729481906, 101.7231898563517],
+    {
+      draggable: true,
+      title: "",
+      opacity: 0.75
+    });
+    
+    marker.addTo(map).bindPopup("<p1><b>Alam Flora Sdn Bhd</b><br>Presint 15, 51A, 51B & 51C, Jln Diplomatik, 62050 Putrajaya.</p1>") .openPopup();
 </script>
 @endpush
