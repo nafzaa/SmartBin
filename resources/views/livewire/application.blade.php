@@ -17,10 +17,10 @@
             <h5 class="card-title">Application Form</h5>
 
             <!-- Vertical Form -->
-            <form class="row g-3">
+            <form class="row g-3" wire:submit.prevent='store'>
               <div class="col-12">
                 <label for="inputNanme4" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="inputNanme4">
+                <input type="text" class="form-control" id="inputfullname" wire:model='full_name'>
               </div>
               <div class="col-12">
                 <label for="inputNanme4" class="form-label">IC Number</label>
@@ -131,6 +131,9 @@
   let showBill = document.getElementById('showBill');
   let billInput = document.getElementById('billInput');
 
+  var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}).addTo(map);
+        
   billInput.addEventListener('change', function() {
     let file = this.files[0];
     if (file) {
