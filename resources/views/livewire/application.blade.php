@@ -83,36 +83,6 @@
 </div>
 
 @push('js')
-<script>
-  // Initialize the map and assign it to a variable for later use
-        // there's a few ways to declare a VARIABLE in javascript.
-        // you might also see people declaring variables using `const` and `let`
-        var map = L.map('applicationFormMap', {
-            // Set latitude and longitude of the map center (required)
-            center: [2.9474456729481906, 101.7231898563517],
-            // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
-            zoom: 11
-        });
-        
-
-    var marker = L.marker(
-    [2.9474456729481906, 101.7231898563517],
-    { 
-        draggable: true,
-        title: "",
-        opacity: 0.75
-    });
-
-        var marker = L.marker(
-        [2.9474456729481906, 101.7231898563517],
-        { 
-            draggable: true,
-            title: "",
-            opacity: 0.75
-        });
-
-        marker.addTo(map).bindPopup("<p1><b>Alam Flora Sdn Bhd</b><br>Presint 15, 51A, 51B & 51C, Jln Diplomatik, 62050 Putrajaya.</p1>") .openPopup();
-</script>
 
 <script>
   // show image javascript
@@ -152,5 +122,36 @@
     }
   });
 
+</script>
+
+<script>
+  // Initialize the map and assign it to a variable for later use
+        // there's a few ways to declare a VARIABLE in javascript.
+        // you might also see people declaring variables using `const` and `let`
+        var map = L.map('applicationFormMap', {
+            // Set latitude and longitude of the map center (required)
+            center: [2.9474456729481906, 101.7231898563517],
+            // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
+            zoom: 11
+        });
+        
+
+    var marker = L.marker(
+    [2.9474456729481906, 101.7231898563517],
+    { 
+        draggable: true,
+        title: "",
+        opacity: 0.75
+    });
+
+        var marker = L.marker(
+        [2.9474456729481906, 101.7231898563517],
+        { 
+            draggable: true,
+            title: "",
+            opacity: 0.75
+        });
+
+        marker.addTo(map).bindPopup("<p1><b>Alam Flora Sdn Bhd</b><br>Presint 15, 51A, 51B & 51C, Jln Diplomatik, 62050 Putrajaya.</p1>") .openPopup();
 </script>
 @endpush
