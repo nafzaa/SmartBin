@@ -130,9 +130,6 @@
   // show bill javascript
   let showBill = document.getElementById('showBill');
   let billInput = document.getElementById('billInput');
-
-  var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}).addTo(map);
         
   billInput.addEventListener('change', function() {
     let file = this.files[0];
@@ -168,6 +165,9 @@
       title: "",
       opacity: 0.75
     });
+
+    var tiles = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}).addTo(map);
   
   var marker = L.marker(
     [2.9474456729481906, 101.7231898563517],
