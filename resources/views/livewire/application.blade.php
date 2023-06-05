@@ -1,30 +1,38 @@
 <div>
+  {{-- PAGE TITLE --}}
   <div class="pagetitle">
     <h1>Application Form</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
         <li class="breadcrumb-item">Forms</li>
-        <li class="breadcrumb-item active">Layouts</li>
+        <li class="breadcrumb-item active">Application</li>
       </ol>
     </nav>
-  </div><!-- End Page Title -->
+  </div>
+  <!-- End PAGE TITLE -->
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Application Form</h5>
-
-            <!-- Vertical Form -->
-            <form class="row g-3" wire:submit.prevent='store'>
+            @if(session()->has('message'))
+            <div class="alert alert-success">
+              {{session('message')}}
+            </div>
+            @endif
+            <!-- APPLICATION FORM -->
+            <form class="row g-3" wire:submit.prevent='store' method="POST">
               <div class="col-8">
                 <label for="inputNanme4" class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="inputfullname" wire:model='full_name'>
+                @error('full_name') <span class="error">{{ $message }}</span> @enderror
               </div>
               <div class="col-4">
                 <label for="inputNanme4" class="form-label">IC Number</label>
                 <input type="text" class="form-control" id="inputICnumber" wire:model='ic_number'>
+                @error('ic_number') <span class="error">{{ $message }}</span> @enderror
               </div>
               <div class="col-4">
                 <label for="inputNanme4" class="form-label">Phone Number</label>
@@ -41,30 +49,29 @@
                   <option value="baru">Baru</option>
                 </select>
               </div>
-              <div class="col-12">
-                {{-- IC --}}
-                {{-- <label for="inputNanme4" class="form-label">IC</label> --}}
-                <div class="row">
 
+              {{-- IDENTIFICATION CARD PROOF start --}}
+              <div class="col-12">
+                <div class="row">
                   <div class="col-6">
                     <label for="icFront" class="form-label">IC (Front)</label>
-                    {{-- <div id="showImgFront">
-                    </div> --}}
-                    @if($ic_front)
-                        <img src="{{$ic_front->temporaryUrl()}}" alt="Image Preview" style="max-width: 100px">
+                    @if ($ic_front)
+                        <div class="border text-center">
+                          <img class="m-2" src="{{ $ic_front->temporaryUrl() }}" alt="Photo Preview" style="max-width: 500px; max-height:600px">
+                        </div>
                     @endif
                     @error('ic_front')
-                      <div class="text-red-500">{{ $message }}</div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
                     <input class="form-control" type="file" id="icFront" wire:model='ic_front'>
+                    @error('icFront') <span class="error">{{ $message }}</span> @enderror
                   </div>
-
                   <div class="col-6">
                     <label for="icBack" class="form-label">IC (Back)</label>
-                    {{-- <div id="showImgBack">
-                    </div> --}}
                     @if($ic_back)
-                        <img src="{{$ic_front->temporaryUrl()}}" alt="Image Preview" style="max-width: 100px">
+                      <div class="border text-center">
+                          <img class="m-2" src="{{$ic_back->temporaryUrl()}}" alt="Image Preview" style="max-width: 500px; max-height:600px">
+                      </div>
                     @endif
                     @error('ic_back')
                       <div class="text-red-500">{{ $message }}</div>
@@ -73,22 +80,29 @@
                   </div>
                 </div>
               </div>
+              {{-- IDENTIFICATION CARD PROOF end --}}
+
               <div class="col-6">
-                {{-- BILL --}}
-                <label for="billInput" class="form-label">Bill Image (Water/Electric/dll...)</label>
-                <div id="showBill"></div>
-                <input class="form-control" type="file" id="billInput">
+                <label for="billInput" class="form-label">Bill Utility (Water/Electric/dll...)</label>
+                @if($bill_utility)
+                  <div class="border text-center">
+                    <img class="m-2" src="{{$bill_utility->temporaryUrl()}}" alt="Image Preview" style="max-width: 500px; max-height:600px">
+                  </div>
+                @endif
+                @error('bill_utility')
+                  <div class="text-red-500">{{$message}}</div>
+                @enderror
+                <input class="form-control" type="file" id="billInput" wire:model="bill_utility">
               </div>
               <div class="col-12">
                 <label for="pointLocation" class="form-label">Point Location</label>
                 <div id="applicationFormMap" style="width: 100%; height: 500px" wire:ignore></div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" wire:click="store" class="btn btn-primary">Submit</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>
               </div>
             </form>
-            <!-- Vertical Form -->
 
           </div>
         </div>
@@ -98,68 +112,7 @@
 </div>
 
 @push('js')
-
-{{-- <script>
-  // show image javascript
-
-  let showImgFront = document.getElementById('showImgFront');
-  let icFront = document.getElementById('icFront');
-  let showImgBack = document.getElementById('showImgBack');
-  let icBack = document.getElementById('icBack');
-
-  icFront.addEventListener('change', function() {
-    let file = this.files[0];
-    if (file) {
-      let reader = new FileReader();
-      reader.addEventListener('load', function() {
-        showImgFront.innerHTML = `<img
-                        src="${this.result}"
-                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
-      });
-      reader.readAsDataURL(file);
-
-    } else {
-      showImgFront.innerHTML = '';
-    }
-  });
-
-  icBack.addEventListener('change', function() {
-    let file = this.files[0];
-    if (file) {
-      let reader = new FileReader();
-      reader.addEventListener('load', function() {
-        showImgBack.innerHTML = `<img
-                        src="${this.result}"
-                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
-      });
-      reader.readAsDataURL(file);
-    } else {
-      showImgBack.innerHTML = '';
-    }
-  });
-</script> --}}
-
-{{-- <script>
-  // show bill javascript
-  let showBill = document.getElementById('showBill');
-  let billInput = document.getElementById('billInput');
-        
-  billInput.addEventListener('change', function() {
-    let file = this.files[0];
-    if (file) {
-      let reader = new FileReader();
-      reader.addEventListener('load', function() {
-        showBill.innerHTML = `<img
-                        src="${this.result}"
-                        alt="" style="width: 100%; margin-bottom: 10px; transform: scale(0.8); max-height: 400px; min-height:400px">`;
-      });
-      reader.readAsDataURL(file);
-    } else {
-      showBill.innerHTML = '';
-    }
-  });
-</script> --}}
-
+{{-- MAP --}}
 <script>
   // Initialize the map and assign it to a variable for later use
   // there's a few ways to declare a VARIABLE in javascript.

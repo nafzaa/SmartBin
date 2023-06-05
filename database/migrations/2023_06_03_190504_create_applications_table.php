@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
+            $table->string('full_name');
+            $table->unsignedBigInteger('ic_number');
+            $table->integer('phone_number');
+            $table->string('bin_type');
+            $table->string('ic_front');
+            $table->string('ic_back');
+            $table->string('bill_utility');
             $table->timestamps();
         });
     }
