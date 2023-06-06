@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
+            $table->string('application_number');
             $table->string('full_name');
             $table->unsignedBigInteger('ic_number');
             $table->integer('phone_number');
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->string('ic_front');
             $table->string('ic_back');
             $table->string('bill_utility');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

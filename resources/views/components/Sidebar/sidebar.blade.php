@@ -17,13 +17,13 @@
             </a>
             <ul id="application-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('application.apply')}}">
-                        <i class="bi bi-circle"></i><span>Apply</span>
+                    <a href="{{route('application')}}">
+                        <i class="bi bi-circle"></i><span>List</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="bi bi-circle"></i><span>List</span>
+                    <a href="{{route('application.create')}}">
+                        <i class="bi bi-circle"></i><span>Apply</span>
                     </a>
                 </li>
                 <li>
@@ -35,7 +35,7 @@
         </li>
         <!-- End application Nav -->
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#vendor-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-file-earmark-text"></i><span>Vendor</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -46,7 +46,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         <!-- End application Nav -->
 
 

@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Application as ApplicationModel;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\Application as ApplicationModel;
 
-class Application extends Component
+class ApplicationCreate extends Component
 {
     use WithFileUploads;
 
@@ -30,24 +30,9 @@ class Application extends Component
         'bill_utility' => 'required'
     ];
 
-    public function render()
-    {
-        $applicationModel = ApplicationModel::get();
-        // dd($applicationModel);
-        return view('livewire.application', compact('applicationModel'));
-    }
-
-    // public function deleteItem($itemId)
-    // {
-    //     dd($itemId);
-    //     $item = ApplicationModel::findOrFail($itemId);
-    //     $item->delete();
-    // }
-
-    
-
     public function store()
     {
+        //dd($this->ic_front->getClientOriginalExtension());
         $random_number = rand();
 
         $this->validate([
@@ -62,15 +47,15 @@ class Application extends Component
                 'ic_number' => $this->ic_number,
                 'phone_number' => $this->phone_number,
                 'bin_type' => $this->bin_type,
-                'ic_front' => $this->ic_front,
-                'ic_back' => $this->ic_back,
-                'bill_utility' => $this->bill_utility
+                'ic_front' => "/ic_front" . "/" . $this->ic_front->getClientOriginalName(),
+                'ic_back' => "/ic_back" . "/" . $this->ic_back->getClientOriginalName(),
+                'bill_utility' => "/bill_utility" . "/" . $this->bill_utility->getClientOriginalName()
             ]
         );
 
-        $this->ic_front->store('ic_front');
-        $this->ic_back->store('ic_back');
-        $this->bill_utility->store('bill_utility');
+        $this->ic_front->storeAs('ic_front', $this->ic_front->getClientOriginalName(), 'public');
+        $this->ic_back->storeAs('ic_back', $this->ic_back->getClientOriginalName(), 'public');
+        $this->bill_utility->storeAs('bill_utility', $this->bill_utility->getClientOriginalName(), 'public');
 
         $this->full_name = "";
         $this->ic_number = "";
@@ -83,9 +68,8 @@ class Application extends Component
         session()->flash('message', 'Form has been saved');
     }
 
-    public function destroy($application){
-        $application = ApplicationModel::findOrFail($application);
-        $application->delete();
-        return back();
+    public function render()
+    {
+        return view('livewire.application-create');
     }
 }

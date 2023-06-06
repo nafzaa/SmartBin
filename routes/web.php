@@ -34,7 +34,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // dashboard
 Route::get('/home', [DashboardController::class, 'index'])->name('home')->middleware('auth');
 
-// Application - Apply
-Route::get('/application/apply', [ApplicationController::class, 'index'])->name('application.apply')->middleware('auth');
-// Application - List
-// Route::get('/application/list', [ApplicationController::class, 'index'])->name('application.apply')->middleware('auth');
+// Application
+Route::get('/application', [ApplicationController::class, 'index'])->name('application')->middleware('auth');
+// Application - Create
+Route::get('/application/create', [ApplicationController::class, 'create'])->name('application.create')->middleware('auth');
+// Application - Destroy
+// Route::delete('/application/{application}/destroy', [ApplicationController::class, 'destroy'])->name('application.destroy')->middleware('auth');
+// Application - Show
+Route::get('/application/{application_id}', [ApplicationController::class, 'show'])->name('application.view')->middleware('auth');
