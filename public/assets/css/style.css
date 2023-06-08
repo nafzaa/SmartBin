@@ -361,14 +361,14 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #7fbe41;
+  background-color: #1E265D;
   /* Toggle Sidebar Button */
   /* Search Bar */
 }
 .header .toggle-sidebar-btn {
   font-size: 32px;
   cursor: pointer;
-  color: #012970;
+  color: #458ACA;
 }
 .header .search-bar {
   min-width: 360px;
@@ -434,7 +434,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .header-nav .nav-icon {
   font-size: 20px;
-  color: #012970;
+  /* color: #012970; */
+  color: white;
 }
 .header-nav .nav-profile {
   color: #458bcaff;
@@ -544,7 +545,7 @@ h1, h2, h3, h4, h5, h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #7fbe41ff;
+  background-color: #458ACA;
 }
 @media (max-width: 1199px) {
   .sidebar {
@@ -606,7 +607,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: #f6f9ff;
   transition: 0.3;
-  background: #458bcaff;
+  background: #1E265D;
   padding: 10px 15px;
   border-radius: 4px;
 }
