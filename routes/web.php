@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\BinController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +43,8 @@ Route::get('/application/create', [ApplicationController::class, 'create'])->nam
 // Route::delete('/application/{application}/destroy', [ApplicationController::class, 'destroy'])->name('application.destroy')->middleware('auth');
 // Application - Show
 Route::get('/application/{application_id}', [ApplicationController::class, 'show'])->name('application.view')->middleware('auth');
+
+// BIN
+Route::get('/bin', [BinController::class, 'index'])->name('bin')->middleware('auth');
+// BIN - Create
+Route::get('/bin/create', [BinController::class, 'create'])->name('bin.create')->middleware('auth');

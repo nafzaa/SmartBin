@@ -1,7 +1,7 @@
 <div class="row">
     <div class="row">
         <div class="card">
-            <h1 class="m-2">Services</h1>
+            <h1 class="m-2">Bin</h1>
             <div class="row">
                 <!-- COLLECTION Card -->
                 <div class="col-xxl-4 col-xl-12 mt-2">
@@ -22,7 +22,9 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Collection <span>| Today</span></h5>
+                            <h5 class="card-title">Total
+                                {{-- <span>| Today</span> --}}
+                            </h5>
 
                             <div class="d-flex align-items-center">
                                 <div
@@ -60,7 +62,9 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">PC <span>| This Month</span></h5>
+                            <h5 class="card-title">Delivered
+                                {{-- <span>| This Month</span> --}}
+                            </h5>
 
                             <div class="d-flex align-items-center">
                                 <div
@@ -99,7 +103,9 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Operation <span>| This Year</span></h5>
+                            <h5 class="card-title">Pending
+                                {{-- <span>| This Year</span> --}}
+                            </h5>
 
                             <div class="d-flex align-items-center">
                                 <div
@@ -120,7 +126,7 @@
                 </div>
                 <!-- End OPERATION Card -->
                 <!-- MOBILE RECEPTACLE BINS Card -->
-                <div class="col-xxl-4 col-xl-12 mt-2">
+                {{-- <div class="col-xxl-4 col-xl-12 mt-2">
 
                     <div class="card info-card customers-card">
 
@@ -157,10 +163,10 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
                 <!-- End MBS Card -->
                 <!-- ENVIRONMENTAL SOLUTIONS Card -->
-                <div class="col-xxl-4 col-xl-12 mt-2">
+                {{-- <div class="col-xxl-4 col-xl-12 mt-2">
 
                     <div class="card info-card customers-card">
 
@@ -197,7 +203,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
                 <!-- End ENVIRONMENTAL SOLUTIONS Card -->
             
                 <!-- SERVICES REPORTS -->
@@ -228,21 +234,24 @@
                                 document.addEventListener("DOMContentLoaded", () => {
                                     new ApexCharts(document.querySelector("#reportsChart"), {
                                         series: [{
-                                            name: 'Collection',
+                                            name: 'Total',
                                             data: [31, 40, 28, 51, 42, 82, 56],
                                         }, {
-                                            name: 'PC',
+                                            name: 'Delivered',
                                             data: [11, 32, 45, 32, 34, 52, 41]
                                         }, {
-                                            name: 'Operation',
+                                            name: 'Pending',
                                             data: [15, 11, 32, 18, 9, 24, 11]
-                                        }, {
-                                            name: 'MRB',
-                                            data: [20, 31, 22, 58, 6, 19, 12]
-                                        }, {
-                                            name: 'ES',
-                                            data: [50, 22, 20, 40, 29, 34, 71]
-                                        }],
+                                        },
+                                        // {
+                                        //     name: 'MRB',
+                                        //     data: [20, 31, 22, 58, 6, 19, 12]
+                                        // },
+                                        // {
+                                        //     name: 'ES',
+                                        //     data: [50, 22, 20, 40, 29, 34, 71]
+                                        // }
+                                    ],
 
                                         chart: {
                                             height: 350,
@@ -312,13 +321,15 @@
 
                         <div class="card-body">
                             <hr>
-                            <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+                            <h5 class="card-title">Recent Activity
+                                {{-- <span>| Today</span> --}}
+                            </h5>
                             <div class="activity">
                                 <div class="activity-item d-flex">
                                     <div class="activite-label">32 min</div>
                                     <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                                     <div class="activity-content">
-                                        Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                                        Pasukan Alpha sedang <a href="#" class="fw-bold text-dark">menghantar</a> tong
                                     </div>
                                 </div>
                                 <!-- End activity item-->
@@ -327,7 +338,7 @@
                                     <div class="activite-label">56 min</div>
                                     <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                                     <div class="activity-content">
-                                        Voluptatem blanditiis blanditiis eveniet
+                                        Pasukan Bravo membuat pengiraan jumlah total tong
                                     </div>
                                 </div><!-- End activity item-->
 
@@ -335,7 +346,7 @@
                                     <div class="activite-label">2 hrs</div>
                                     <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                                     <div class="activity-content">
-                                        Voluptates corrupti molestias voluptatem
+                                        Pasukan Charlie menguruskan masalah pending
                                     </div>
                                 </div><!-- End activity item-->
 

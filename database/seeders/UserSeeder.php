@@ -19,6 +19,11 @@ class UserSeeder extends Seeder
                 'email' => 'applicant@gmail.com',
                 'password' => bcrypt('12345678')
             ],
+            [
+                'name' => 'User',
+                'email' => 'user@gmail.com',
+                'password' => bcrypt('12345678')
+            ],
         ];
 
         for ($i=0; $i < count($users); $i++) {
