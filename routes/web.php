@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\AssetController;
 use App\Http\Controllers\BinController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,3 +49,8 @@ Route::get('/application/{application_id}', [ApplicationController::class, 'show
 Route::get('/bin', [BinController::class, 'index'])->name('bin')->middleware('auth');
 // BIN - Create
 Route::get('/bin/create', [BinController::class, 'create'])->name('bin.create')->middleware('auth');
+
+// ASSET
+Route::get('/asset', [AssetController::class, 'index'])->name('asset')->middleware('auth');
+// ASSET - Create
+Route::get('/asset/create', [AssetController::class, 'create'])->name('asset.create')->middleware('auth');

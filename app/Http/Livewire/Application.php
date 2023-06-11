@@ -46,42 +46,42 @@ class Application extends Component
 
     
 
-    public function store()
-    {
-        $random_number = rand();
+    // public function store()
+    // {
+    //     $random_number = rand();
 
-        $this->validate([
-            'ic_front' => 'image|max:1024',
-            'ic_back' => 'image|max:1024',
-            'bill_utility' => 'image|max:1024'
-        ]);
-        ApplicationModel::create(
-            [
-                'application_number' => $random_number,
-                'full_name' => $this->full_name,
-                'ic_number' => $this->ic_number,
-                'phone_number' => $this->phone_number,
-                'bin_type' => $this->bin_type,
-                'ic_front' => $this->ic_front,
-                'ic_back' => $this->ic_back,
-                'bill_utility' => $this->bill_utility
-            ]
-        );
+    //     $this->validate([
+    //         'ic_front' => 'image|max:1024',
+    //         'ic_back' => 'image|max:1024',
+    //         'bill_utility' => 'image|max:1024'
+    //     ]);
+    //     ApplicationModel::create(
+    //         [
+    //             'application_number' => $random_number,
+    //             'full_name' => $this->full_name,
+    //             'ic_number' => $this->ic_number,
+    //             'phone_number' => $this->phone_number,
+    //             'bin_type' => $this->bin_type,
+    //             'ic_front' => $this->ic_front,
+    //             'ic_back' => $this->ic_back,
+    //             'bill_utility' => $this->bill_utility
+    //         ]
+    //     );
 
-        $this->ic_front->store('ic_front');
-        $this->ic_back->store('ic_back');
-        $this->bill_utility->store('bill_utility');
+    //     $this->ic_front->store('ic_front');
+    //     $this->ic_back->store('ic_back');
+    //     $this->bill_utility->store('bill_utility');
 
-        $this->full_name = "";
-        $this->ic_number = "";
-        $this->phone_number = "";
-        $this->bin_type = "";
-        $this->ic_front = "";
-        $this->ic_back = "";
-        $this->bill_utility = "";
+    //     $this->full_name = "";
+    //     $this->ic_number = "";
+    //     $this->phone_number = "";
+    //     $this->bin_type = "";
+    //     $this->ic_front = "";
+    //     $this->ic_back = "";
+    //     $this->bill_utility = "";
 
-        session()->flash('message', 'Form has been saved');
-    }
+    //     session()->flash('message', 'Form has been saved');
+    // }
 
     public function destroy($application){
         $application = ApplicationModel::findOrFail($application);

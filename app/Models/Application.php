@@ -12,13 +12,33 @@ class Application extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'application_number',
-        'full_name',
-        'ic_number',
-        'phone_number',
-        'bin_type',
+        'scheme',
+        'premise',
+        'application_category',
+        'application_type',
+        'location_premise_program',
+        'street_name',
+        'park_name',
+        'zip_code',
+        'state',
+        'bill_utility',
+        'recipient_full_name',
+        'recipient_status',
+        'recipient_ic_number',
+        'recipient_phone_number',
+        'recipient_email',
+        'recipient_nationality',
         'ic_front',
         'ic_back',
-        'bill_utility'
+        'bin_type',
+        'bin_amount',
+        'bin_serial_number',
+        'bin_serial_number_old',
+        'bin_acceptance_category',
+        'bin_acceptance_notes',
+        'bin_picture_delivered',
+        'worker_name',
+        'worker_number',
+        'lorry_number'
     ];
 }
