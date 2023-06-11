@@ -22,10 +22,10 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Application Number</th>
+                    <th scope="col">Application No.</th>
                     <th scope="col">Name</th>
-                    <th scope="col">IC Number</th>
-                    <th scope="col">Phone Number</th>
+                    <th scope="col">IC</th>
+                    <th scope="col">Phone No.</th>
                     <th scope="col">Bin Type</th>
                     <th scope="col">Action</th>
                   </tr>

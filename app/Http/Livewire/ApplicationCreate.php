@@ -13,7 +13,7 @@ class ApplicationCreate extends Component
     public $scheme;
     public $premise;
     public $application_category;
-    public $application_type;
+    public $application_type="penggantian";
     public $location_premise_program;
     public $street_name;
     public $park_name;
