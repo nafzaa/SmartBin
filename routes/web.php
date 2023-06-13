@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\BinController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SettingSchemeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +43,7 @@ Route::get('/application', [ApplicationController::class, 'index'])->name('appli
 // Application - Create
 Route::get('/application/create', [ApplicationController::class, 'create'])->name('application.create')->middleware('auth');
 // Application - Destroy
-// Route::delete('/application/{application}/destroy', [ApplicationController::class, 'destroy'])->name('application.destroy')->middleware('auth');
+Route::delete('/application/{application}/destroy', [ApplicationController::class, 'destroy'])->name('application.destroy')->middleware('auth');
 // Application - Show
 Route::get('/application/{application_id}', [ApplicationController::class, 'show'])->name('application.view')->middleware('auth');
 
@@ -54,3 +56,9 @@ Route::get('/bin/create', [BinController::class, 'create'])->name('bin.create')-
 Route::get('/asset', [AssetController::class, 'index'])->name('asset')->middleware('auth');
 // ASSET - Create
 Route::get('/asset/create', [AssetController::class, 'create'])->name('asset.create')->middleware('auth');
+
+// SETTING
+Route::get('/setting', [SettingController::class, 'index'])->name('setting')->middleware('auth');
+// Scheme
+// Route::get('/setting/scheme', [SettingController::class, 'index'])->name('setting')->middleware('auth');
+// Route::delete('/setting/scheme/{scheme}/destroy', [SettingSchemeController::class, 'destroy'])->name('setting.scheme.destroy')->middleware('auth');

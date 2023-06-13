@@ -6,13 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Application;
 
-class SettingPremiseType extends Model
+class SettingApplicationStatus extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'name'
-    ];
 
     public function hasManyApplication(){
         return $this->hasMany(Application::class, 'id');

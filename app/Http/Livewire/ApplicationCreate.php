@@ -5,39 +5,49 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Application as ApplicationModel;
+use App\Models\SettingScheme as SettingSchemeModel;
+use App\Models\SettingPremiseType as SettingPremiseTypeModel;
+use App\Models\SettingApplicationCategory as SettingApplicationCategoryModel;
+use App\Models\SettingBinDelivery as SettingBinDeliveryModel;
+use App\Models\SettingNegeri as SettingNegeriModel;
+use App\Models\SettingRecipient as SettingRecipientModel;
+use App\Models\SettingCitizen as SettingCitizenModel;
+use App\Models\SettingBinType as SettingBinTypeModel;
+use App\Models\SettingBinAcceptanceCategory as SettingBinAcceptanceCategoryModel;
 
 class ApplicationCreate extends Component
 {
     use WithFileUploads;
 
-    public $scheme;
-    public $premise;
-    public $application_category;
-    public $application_type="penggantian";
-    public $location_premise_program;
-    public $street_name;
-    public $park_name;
-    public $zip_code;
-    public $state;
-    public $bill_utility;
-    public $recipient_full_name;
-    public $recipient_status;
-    public $recipient_ic_number;
-    public $recipient_phone_number;
-    public $recipient_email;
-    public $recipient_nationality;
-    public $ic_front;
-    public $ic_back;
-    public $bin_type;
-    public $bin_amount;
-    public $bin_serial_number;
-    public $bin_serial_number_old;
-    public $bin_acceptance_category;
-    public $bin_acceptance_notes;
-    public $bin_picture_delivered;
-    public $worker_name;
-    public $worker_number;
-    public $lorry_number;
+    public $scheme=null;
+    public $premise=null;
+    public $application_category=null;
+    public $application_type=null;
+    public $location_premise_program=null;
+    public $street_name=null;
+    public $park_name=null;
+    public $zip_code=null;
+    public $state=null;
+    public $bill_utility=null;
+    public $recipient_full_name=null;
+    public $recipient_status=null;
+    public $recipient_ic_number=null;
+    public $recipient_phone_number=null;
+    public $recipient_email=null;
+    public $recipient_nationality=null;
+    public $ic_front=null;
+    public $ic_back=null;
+    public $bin_type=null;
+    public $bin_amount=null;
+    public $bin_serial_number=null;
+    public $bin_serial_number_old=null;
+    public $bin_acceptance_category=null;
+    public $bin_acceptance_notes=null;
+    public $bin_picture_delivered=null;
+    public $worker_name=null;
+    public $worker_number=null;
+    public $lorry_number=null;
+    public $application_status_new = 1;
 
     // protected $rules = [
     //     'scheme' => 'required',
@@ -52,46 +62,65 @@ class ApplicationCreate extends Component
 
     public function render()
     {
-        return view('livewire.application-create');
+        $settingSchemeModels = SettingSchemeModel::get();
+        $settingPremiseTypeModels = SettingPremiseTypeModel::get();
+        $settingApplicationCategoryModels = SettingApplicationCategoryModel::get();
+        $settingBinDeliveryModel = SettingBinDeliveryModel::get();
+        $settingNegeriModel = SettingNegeriModel::get();
+        $settingRecipientModel = SettingRecipientModel::get();
+        $settingCitizenModel = SettingCitizenModel::get();
+        $settingBinTypeModel = SettingBinTypeModel::get();
+        $settingBinAcceptanceCategoryModel = SettingBinAcceptanceCategoryModel::get();
+
+        return view('livewire.application-create', compact(
+            'settingSchemeModels',
+            'settingPremiseTypeModels',
+            'settingApplicationCategoryModels',
+            'settingBinDeliveryModel',
+            'settingNegeriModel',
+            'settingRecipientModel',
+            'settingCitizenModel',
+            'settingBinTypeModel',
+            'settingBinAcceptanceCategoryModel'
+        ));
     }
 
     public function store()
     {
-        // dd($this->application_type);
-        $random_number = rand();
-        // dd($random_number);
+        // $application_status_new = 1;
 
-        $this->validate([
-            'scheme' => 'string|max:255',
-            'premise' => 'string|max:255',
-            'application_category' => 'string|max:255',
-            'application_type' => 'string|max:255',
-            'location_premise_program' => 'string|max:255',
-            'street_name' => 'string|max:255',
-            'park_name' => 'string|max:255',
-            'zip_code' => 'string|max:255',
-            'state' => 'string|max:255',
-            'recipient_full_name' => 'string|max:255',
-            'recipient_status' => 'string|max:255',
-            'recipient_ic_number' => 'string|max:255',
-            'recipient_phone_number' => 'string|max:255',
-            'recipient_email' => 'string|max:255',
-            'recipient_nationality' => 'string|max:255',
-            'bin_type' => 'string|max:255',
-            'bin_amount' => 'string|max:255',
-            'bin_serial_number' => 'string|max:255',
-            'bin_serial_number_old' => 'string|max:255',
-            'bin_acceptance_category' => 'string|max:255',
-            'bin_acceptance_notes' => 'string|max:255',
-            'bin_picture_delivered' => 'string|max:255',
-            'worker_name' => 'string|max:255',
-            'worker_number' => 'string|max:255',
-            'lorry_number' => 'string|max:255',
+        // $this->validate([
+        //     'scheme' => 'integer',
+        //     'premise' => 'integer',
+        //     'application_category' => 'integer',
+        //     'application_type' => 'integer',
+        //     'location_premise_program' => 'string|max:255',
+        //     'street_name' => 'string|max:255',
+        //     'park_name' => 'string|max:255',
+        //     'zip_code' => 'string|max:255',
+        //     'state' => 'integer',
+        //     'recipient_full_name' => 'string|max:255',
+        //     'recipient_status' => 'integer',
+        //     'recipient_ic_number' => 'string|max:255',
+        //     'recipient_phone_number' => 'string|max:255',
+        //     'recipient_email' => 'string|max:255',
+        //     'recipient_nationality' => 'integer',
+        //     'bin_type' => 'integer',
+        //     'bin_amount' => 'string|max:255',
+        //     'bin_serial_number' => 'string|max:255',
+        //     'bin_serial_number_old' => 'string|max:255',
+        //     'bin_acceptance_category' => 'integer',
+        //     'bin_acceptance_notes' => 'string|max:255',
+        //     'bin_picture_delivered' => 'string|max:255',
+        //     'worker_name' => 'string|max:255',
+        //     'worker_number' => 'string|max:255',
+        //     'lorry_number' => 'string|max:255',
 
-            // 'ic_front' => 'image|max:1024',
-            // 'ic_back' => 'image|max:1024',
-            // 'bill_utility' => 'image|max:1024'
-        ]);
+        //     'ic_front' => 'image|max:1024',
+        //     'ic_back' => 'image|max:1024',
+        //     'bill_utility' => 'image|max:1024'
+        // ]);
+        
         ApplicationModel::create(
             [
                 'scheme' => $this->scheme,
@@ -103,15 +132,15 @@ class ApplicationCreate extends Component
                 'park_name' =>$this->park_name,
                 'zip_code' =>$this->zip_code,
                 'state' =>$this->state,
-                // 'bill_utility' =>"/bill_utility" . "/" . $this->bill_utility->getClientOriginalName(),
+                'bill_utility' => "/bill_utility" . "/" . $this->bill_utility->getClientOriginalName(),
                 'recipient_full_name' =>$this->recipient_full_name,
                 'recipient_status' =>$this->recipient_status,
                 'recipient_ic_number' =>$this->recipient_ic_number,
                 'recipient_phone_number' =>$this->recipient_phone_number,
                 'recipient_email' =>$this->recipient_email,
                 'recipient_nationality' =>$this->recipient_nationality,
-                // 'ic_front' =>"/ic_front" . "/" . $this->ic_front->getClientOriginalName(),
-                // 'ic_back' =>"/ic_back" . "/" . $this->ic_back->getClientOriginalName(),
+                'ic_front' =>"/ic_front" . "/" . $this->ic_front->getClientOriginalName(),
+                'ic_back' =>"/ic_back" . "/" . $this->ic_back->getClientOriginalName(),
                 'bin_type' =>$this->bin_type,
                 'bin_amount' =>$this->bin_amount,
                 'bin_serial_number' =>$this->bin_serial_number,
@@ -122,6 +151,7 @@ class ApplicationCreate extends Component
                 'worker_number' =>$this->worker_number,
                 'worker_number' =>$this->worker_number,
                 'lorry_number' =>$this->lorry_number,
+                'application_status' =>$this->application_status_new
 
                 // 'application_number' => $random_number,
                 // 'full_name' => $this->full_name,
@@ -138,34 +168,34 @@ class ApplicationCreate extends Component
         // $this->ic_back->storeAs('ic_back', $this->ic_back->getClientOriginalName(), 'public');
         // $this->bill_utility->storeAs('bill_utility', $this->bill_utility->getClientOriginalName(), 'public');
         
-        $this->scheme = "";
-        $this->premise = "";
-        $this->application_category= "";
-        $this->application_type= "";
-        $this->location_premise_program= "";
-        $this->street_name= "";
-        $this->park_name= "";
-        $this->zip_code= "";
-        $this->state= "";
-        // $this->bill_utility= "";
-        $this->recipient_full_name= "";
-        $this->recipient_status= "";
-        $this->recipient_ic_number= "";
-        $this->recipient_phone_number= "";
-        $this->recipient_email= "";
-        $this->recipient_nationality= "";
-        // $this->ic_front= "";
-        // $this->ic_back= "";
-        $this->bin_type= "";
-        $this->bin_amount= "";
-        $this->bin_serial_number= "";
-        $this->bin_serial_number_old= "";
-        $this->bin_acceptance_category= "";
-        $this->bin_acceptance_notes= "";
-        $this->bin_picture_delivered= "";
-        $this->worker_number= "";
-        $this->worker_number= "";
-        $this->lorry_number="";
+        $this->scheme =null;
+        $this->premise =null;
+        $this->application_category=null;
+        $this->application_type=null;
+        $this->location_premise_program=null;
+        $this->street_name=null;
+        $this->park_name=null;
+        $this->zip_code=null;
+        $this->state=null;
+        $this->bill_utility=null;
+        $this->recipient_full_name=null;
+        $this->recipient_status=null;
+        $this->recipient_ic_number=null;
+        $this->recipient_phone_number=null;
+        $this->recipient_email=null;
+        $this->recipient_nationality=null;
+        $this->ic_front= "";
+        $this->ic_back= "";
+        $this->bin_type=null;
+        $this->bin_amount=null;
+        $this->bin_serial_number=null;
+        $this->bin_serial_number_old=null;
+        $this->bin_acceptance_category=null;
+        $this->bin_acceptance_notes=null;
+        $this->bin_picture_delivered=null;
+        $this->worker_number=null;
+        $this->worker_number=null;
+        $this->lorry_number=null;
 
         session()->flash('message', 'Form has been saved');
     }

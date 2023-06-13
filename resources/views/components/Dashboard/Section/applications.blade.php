@@ -2,7 +2,7 @@
     <div class="card">
         <h1 class="m-2">Application</h1>
         <div class="row">
-            <!-- COLLECTION Card -->
+            <!-- TOTAL Card -->
             <div class="col-xxl-4 col-xl-12 mt-2">
                 <div class="card info-card sales-card">
                     <div class="filter">
@@ -18,8 +18,6 @@
                             <li><a class="dropdown-item" href="#">This Year</a></li>
                         </ul>
                     </div>
-
-                    {{-- BIN --}}
                     <div class="card-body">
                         <h5 class="card-title">Total
                             {{-- <span>| Today</span> --}}
@@ -34,18 +32,24 @@
                             <div class="ps-3">
                                 <h6>{{$application_total_count}}</h6>
                                 <span class="text-muted small pt-2 ps-1">Created</span>
-                                <span class="text-success small pt-1 fw-bold">{{$asset_bin_latest_created->diffForHumans()}}</span>
+                                <span class="text-success small pt-1 fw-bold">
+                                    @if (isset($applications))
+                                    {{$applications->diffForHumans()}} 
+                                    @endif
+                                </span>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <!-- End COLLECTION Card -->
-            <!-- PUBLIC CLEANSING Card -->
+            <!-- End TOTAL Card -->
+        </div>
+
+        <div class="row">
+            {{-- SCHEME --}}
             <div class="col-xxl-4 col-xl-12 mt-2">
                 <div class="card info-card revenue-card">
-
                     <div class="filter">
                         <a class="icon" href="#" data-bs-ttoggle="dropdown"><i
                                 class="bi bi-three-dots"></i></a>
@@ -53,16 +57,14 @@
                             <li class="dropdown-header text-start">
                                 <h6>Filter</h6>
                             </li>
-
                             <li><a class="dropdown-item" href="#">Today</a></li>
                             <li><a class="dropdown-item" href="#">This Month</a></li>
                             <li><a class="dropdown-item" href="#">This Year</a></li>
                         </ul>
                     </div>
-
                     <div class="card-body">
-                        <h5 class="card-title">Others
-                            {{-- <span>| This Month</span> --}}
+                        <h5 class="card-title">Scheme
+                            <span>| {{$scheme_1->name}}</span>
                         </h5>
 
                         <div class="d-flex align-items-center">
@@ -71,21 +73,98 @@
                                 <i class="bi bi-newspaper"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>{{$asset_others_count}}</h6>
-                                <span class="text-muted small pt-2 ps-1">Created</span>
-                                <span class="text-success small pt-1 fw-bold">{{$asset_others_latest_created->diffForHumans()}}</span>
+                                <h6>{{$application_scheme_1_count}}</h6>
+                                @if (isset($application_scheme_1))
+                                    <span class="text-muted small pt-2 ps-1">Created</span>
+                                    <span class="text-success small pt-1 fw-bold">{{$application_scheme_1->created_at->diffForHumans()}}</span>
+                                @else
+                                    <span class="text-success small pt-1 fw-bold">Not Created Yet</span>
+                                @endif
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-            <!-- End PUBLIC CLEANSING Card -->
-            <!-- OPERATION Card -->
             <div class="col-xxl-4 col-xl-12 mt-2">
+                <div class="card info-card revenue-card">
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-ttoggle="dropdown"><i
+                                class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">This Month</a></li>
+                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Scheme
+                            <span>| {{$scheme_2->name}}</span>
+                        </h5>
 
+                        <div class="d-flex align-items-center">
+                            <div
+                                class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-newspaper"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{$application_scheme_2_count}}</h6>
+                                @if (isset($application_scheme_2))
+                                    <span class="text-muted small pt-2 ps-1">Created</span>
+                                    <span class="text-success small pt-1 fw-bold">{{$application_scheme_2->created_at->diffForHumans()}}</span>
+                                @else
+                                    <span class="text-success small pt-1 fw-bold">Not Created Yet</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4 col-xl-12 mt-2">
+                <div class="card info-card revenue-card">
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-ttoggle="dropdown"><i
+                                class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">This Month</a></li>
+                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Scheme
+                            <span>| {{$scheme_3->name}}</span>
+                        </h5>
+
+                        <div class="d-flex align-items-center">
+                            <div
+                                class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-newspaper"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{$application_scheme_3_count}}</h6>
+                                @if (isset($application_scheme_3))
+                                    <span class="text-muted small pt-2 ps-1">Created</span>
+                                    <span class="text-success small pt-1 fw-bold">{{$application_scheme_3->created_at->diffForHumans()}}</span>
+                                @else
+                                    <span class="text-success small pt-1 fw-bold">Not Created Yet</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            {{-- PREMISE --}}
+            <div class="col-xxl-4 col-xl-12 mt-2">
                 <div class="card info-card customers-card">
-
                     <div class="filter">
                         <a class="icon" href="#" data-bs-toggle="dropdown"><i
                                 class="bi bi-three-dots"></i></a>
@@ -93,34 +172,110 @@
                             <li class="dropdown-header text-start">
                                 <h6>Filter</h6>
                             </li>
-
                             <li><a class="dropdown-item" href="#">Today</a></li>
                             <li><a class="dropdown-item" href="#">This Month</a></li>
                             <li><a class="dropdown-item" href="#">This Year</a></li>
                         </ul>
                     </div>
-
                     <div class="card-body">
-                        <h5 class="card-title">All
-                            {{-- <span>| This Year</span> --}}
+                        <h5 class="card-title">
+                            Premise
+                            <span>| {{$premise_1->name}}</span>
                         </h5>
-
                         <div class="d-flex align-items-center">
                             <div
                                 class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                 <i class="bi bi-newspaper"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>{{$asset_all_count}}</h6>
-                                <span class="text-muted small pt-2 ps-1">decrease</span>
-                                <span class="text-danger small pt-1 fw-bold">12%</span>
+                                <h6>{{$application_premise_1_count}}</h6>
+                                @if (isset($application_premise_1))
+                                    <span class="text-muted small pt-2 ps-1">Created</span>
+                                    <span class="text-success small pt-1 fw-bold">{{$application_premise_1->created_at->diffForHumans()}}</span>
+                                @else
+                                    <span class="text-success small pt-1 fw-bold">Not Created Yet</span>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-            <!-- End OPERATION Card -->
+            <div class="col-xxl-4 col-xl-12 mt-2">
+                <div class="card info-card customers-card">
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">This Month</a></li>
+                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Premise
+                            <span>| {{$premise_2->name}}</span>
+                        </h5>
+                        <div class="d-flex align-items-center">
+                            <div
+                                class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-newspaper"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{$application_premise_2_count}}</h6>
+                                @if (isset($application_premise_2))
+                                    <span class="text-muted small pt-2 ps-1">Created</span>
+                                    <span class="text-success small pt-1 fw-bold">{{$application_premise_2->created_at->diffForHumans()}}</span>
+                                @else
+                                    <span class="text-success small pt-1 fw-bold">Not Created Yet</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4 col-xl-12 mt-2">
+                <div class="card info-card customers-card">
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-toggle="dropdown"><i
+                                class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">This Month</a></li>
+                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Premise
+                            <span>| {{$premise_3->name}}</span>
+                        </h5>
+                        <div class="d-flex align-items-center">
+                            <div
+                                class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-newspaper"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>{{$application_premise_3_count}}</h6>
+                                @if (isset($application_premise_3))
+                                    <span class="text-muted small pt-2 ps-1">Created</span>
+                                    <span class="text-success small pt-1 fw-bold">{{$application_premise_3->created_at->diffForHumans()}}</span>
+                                @else
+                                    <span class="text-success small pt-1 fw-bold">Not Created Yet</span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
             <!-- MOBILE RECEPTACLE BINS Card -->
             {{-- <div class="col-xxl-4 col-xl-12 mt-2">
 
@@ -301,7 +456,7 @@
             <!-- End SERVICES REPORT -->
             
             <!-- Recent Activity -->
-            <div class="col-4"> 
+            {{-- <div class="col-4"> 
                 <div class="card">
                     <div class="filter">
                         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -381,7 +536,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- End Recent Activity -->
             
             <!-- Recent Sales -->
@@ -702,6 +857,6 @@
                 </div>
             </div> --}}
             <!-- End Website Traffic -->
-        </div>
+        {{-- </div> --}}
     </div>
 </div>

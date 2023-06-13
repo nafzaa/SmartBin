@@ -14,9 +14,18 @@ class SettingSchemeSeeder extends Seeder
     public function run(): void
     {
         $schemes = [
-            ['name'=>'PHKT01'],
-            ['name'=>'PHKT02'],
-            ['name'=>'PHTK03']
+            [
+                'name'=>'PHKT01',
+                'show'=>true
+            ],
+            [
+                'name'=>'PHKT02',
+                'show'=>true
+            ],
+            [
+                'name'=>'PHKT03',
+                'show'=>true
+            ]
         ];
         for ($i=0; $i < count($schemes); $i++) {
             SettingScheme::create($schemes[$i]);

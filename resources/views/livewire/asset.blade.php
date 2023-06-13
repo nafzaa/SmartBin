@@ -25,7 +25,7 @@
                                     <th>Name</th>
                                     <th>Type</th>
                                     <th>Created</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,10 +37,10 @@
                                     <td>{{$assets[$i]->name}}</td>
                                     <td>{{$assets[$i]->type}}</td>
                                     <td>{{$assets[$i]->created_at}}</td>
-                                    <td>
+                                    {{-- <td>
                                         <button class="btn btn-primary">View</button>
                                         <button class="btn btn-danger">Delete</button>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                                 @endfor
                             </tbody>

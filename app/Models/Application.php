@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\SettingScheme;
+use App\Models\SettingPremiseType;
+use App\Models\SettingNegeri;
+use App\Models\SettingApplicationStatus;
 
 class Application extends Model
 {
@@ -39,6 +43,23 @@ class Application extends Model
         'bin_picture_delivered',
         'worker_name',
         'worker_number',
-        'lorry_number'
+        'lorry_number',
+        'application_status'
     ];
+
+    public function belongsToScheme(){
+        return $this->belongsTo(SettingScheme::class, 'scheme');
+    }
+
+    public function belongsToPremiseType(){
+        return $this->belongsTo(SettingPremiseType::class, 'premise');
+    }
+
+    public function belongsToState(){
+        return $this->belongsTo(SettingNegeri::class, 'state');
+    }
+    
+    public function belongsToApplicationStatus(){
+        return $this->belongsTo(SettingApplicationStatus::class, 'application_status');
+    }
 }

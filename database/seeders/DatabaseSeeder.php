@@ -32,7 +32,9 @@ class DatabaseSeeder extends Seeder
             SettingCitizenSeeder::class,
             SettingApplicationCategorySeeder::class,
             SettingBinTypeSeeder::class,
-            SettingBinAcceptanceCategorySeeder::class
+            SettingBinAcceptanceCategorySeeder::class,
+            SettingBinDeliverySeeder::class,
+            SettingApplicationStatusSeeder::class
         ]);
 
     }
