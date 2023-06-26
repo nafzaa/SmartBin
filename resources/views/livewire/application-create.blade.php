@@ -194,8 +194,11 @@
                     <label for="bin_type" class="form-label">Type</label>
                     <select id="inputBinType" wire:model='bin_type' class="form-control">
                       <option selected>Select Type</option>
-                      @for ($i = 0; $i < $settingBinTypeModel->count(); $i++)
-                        <option value="{{$settingBinTypeModel[$i]->id}}">{{$settingBinTypeModel[$i]->name}}</option>
+                      {{-- @for ($i = 0; $i < $settingBinTypeModel->count(); $i++)
+                        <option value="{{$settingBinTypeModel[$i]->id}}">{{$settingBinTypeModel[$i]->hasManyAssetBin}}</option>
+                      @endfor --}}
+                      @for ($i = 0; $i < $assetBinModel->count(); $i++)
+                        <option value="{{$assetBinModel[$i]->id}}">{{$assetBinModel[$i]->belongsToBinType->name}} ({{$assetBinModel[$i]->s}})</option>
                       @endfor
                     </select>
                   </div>

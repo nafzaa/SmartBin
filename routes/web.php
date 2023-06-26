@@ -3,10 +3,12 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\AssetBinController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\BinController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SettingSchemeController;
+use App\Models\AssetBin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,7 +49,7 @@ Route::delete('/application/{application}/destroy', [ApplicationController::clas
 // Application - Show
 Route::get('/application/{application_id}', [ApplicationController::class, 'show'])->name('application.view')->middleware('auth');
 
-// BIN
+// BIN -- Confuse betwwen Bin and Asset Bin
 Route::get('/bin', [BinController::class, 'index'])->name('bin')->middleware('auth');
 // BIN - Create
 Route::get('/bin/create', [BinController::class, 'create'])->name('bin.create')->middleware('auth');
@@ -62,3 +64,6 @@ Route::get('/setting', [SettingController::class, 'index'])->name('setting')->mi
 // Scheme
 // Route::get('/setting/scheme', [SettingController::class, 'index'])->name('setting')->middleware('auth');
 // Route::delete('/setting/scheme/{scheme}/destroy', [SettingSchemeController::class, 'destroy'])->name('setting.scheme.destroy')->middleware('auth');
+
+// ASSET BIN
+Route::get('/asset/bin', [AssetBinController::class, 'index'])->name('asset.bin')->middleware('auth');

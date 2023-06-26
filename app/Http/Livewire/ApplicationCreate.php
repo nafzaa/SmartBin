@@ -13,6 +13,7 @@ use App\Models\SettingNegeri as SettingNegeriModel;
 use App\Models\SettingRecipient as SettingRecipientModel;
 use App\Models\SettingCitizen as SettingCitizenModel;
 use App\Models\SettingBinType as SettingBinTypeModel;
+use App\Models\AssetBin as AssetBinModel;
 use App\Models\SettingBinAcceptanceCategory as SettingBinAcceptanceCategoryModel;
 
 class ApplicationCreate extends Component
@@ -70,6 +71,18 @@ class ApplicationCreate extends Component
         $settingRecipientModel = SettingRecipientModel::get();
         $settingCitizenModel = SettingCitizenModel::get();
         $settingBinTypeModel = SettingBinTypeModel::get();
+
+        $settingBinTypeModelArray = [];
+        for ($i=0; $i < count($settingBinTypeModel); $i++) { 
+            $settingBinTypeModelArray = $settingBinTypeModel[$i];
+            
+        }
+        // dd($settingBinTypeModelArray);
+        // dd($assetBinModel);
+        
+        $assetBinModel = AssetBinModel::where('status', 'In Stock')->orderBy('created_at', 'desc')->get();
+        // $assetBinModel = AssetBinModel::where('status', 'In Stock')->get();
+        // dd($assetBinModel);
         $settingBinAcceptanceCategoryModel = SettingBinAcceptanceCategoryModel::get();
 
         return view('livewire.application-create', compact(
@@ -81,6 +94,7 @@ class ApplicationCreate extends Component
             'settingRecipientModel',
             'settingCitizenModel',
             'settingBinTypeModel',
+            'assetBinModel',
             'settingBinAcceptanceCategoryModel'
         ));
     }

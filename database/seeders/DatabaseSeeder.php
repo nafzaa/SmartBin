@@ -22,8 +22,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
-            BinSeeder::class,
-            AssetSeeder::class,
+            // BinSeeder::class,
+            // AssetSeeder::class,
+
             // Setting
             SettingSchemeSeeder::class,
             SettingPremiseTypeSeeder::class,
@@ -34,7 +35,8 @@ class DatabaseSeeder extends Seeder
             SettingBinTypeSeeder::class,
             SettingBinAcceptanceCategorySeeder::class,
             SettingBinDeliverySeeder::class,
-            SettingApplicationStatusSeeder::class
+            SettingApplicationStatusSeeder::class,
+            AssetBinSeeder::class,
         ]);
 
     }

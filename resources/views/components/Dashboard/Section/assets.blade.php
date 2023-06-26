@@ -34,7 +34,9 @@
                             <div class="ps-3">
                                 <h6>{{$asset_bin_count}}</h6>
                                 <span class="text-muted small pt-2 ps-1">Created</span>
-                                <span class="text-success small pt-1 fw-bold">{{$asset_bin_latest_created->diffForHumans()}}</span>
+                                <span class="text-success small pt-1 fw-bold">
+                                    {{-- {{$asset_bin_latest_created->diffForHumans()}} --}}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -74,7 +76,9 @@
                             <div class="ps-3">
                                 <h6>{{$asset_others_count}}</h6>
                                 <span class="text-muted small pt-2 ps-1">Created</span>
-                                <span class="text-success small pt-1 fw-bold">{{$asset_others_latest_created->diffForHumans()}}</span>
+                                <span class="text-success small pt-1 fw-bold">
+                                    {{-- {{$asset_others_latest_created->diffForHumans()}} --}}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -114,7 +118,9 @@
                             <div class="ps-3">
                                 <h6>{{$asset_all_count}}</h6>
                                 <span class="text-muted small pt-2 ps-1">Created</span>
-                                <span class="text-danger small pt-1 fw-bold">{{$asset_all_latest_created->diffForHumans()}}</span>
+                                <span class="text-danger small pt-1 fw-bold">
+                                    {{-- {{$asset_all_latest_created->diffForHumans()}} --}}
+                                </span>
                             </div>
                         </div>
                     </div>

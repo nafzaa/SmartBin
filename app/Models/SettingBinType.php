@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class SettingBinType extends Model
 {
     use HasFactory;
+
+    public function hasManyAssetBin()
+    {
+        return $this->hasMany(AssetBin::class, 'id');
+    }
 }
