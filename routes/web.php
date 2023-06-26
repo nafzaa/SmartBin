@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ApplicationController;
@@ -67,3 +68,7 @@ Route::get('/setting', [SettingController::class, 'index'])->name('setting')->mi
 
 // ASSET BIN
 Route::get('/asset/bin', [AssetBinController::class, 'index'])->name('asset.bin')->middleware('auth');
+
+// APPLICANT
+Route::get('/applicant', [ApplicantController::class, 'index'])->name('applicant')->middleware('auth');
+Route::get('/applicant/{applicant_id}', [ApplicantController::class, 'show'])->name('applicant.show')->middleware('auth');

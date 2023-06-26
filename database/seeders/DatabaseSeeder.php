@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             // BinSeeder::class,
             // AssetSeeder::class,
+            ApplicantSeeder::class,
 
             // Setting
             SettingSchemeSeeder::class,

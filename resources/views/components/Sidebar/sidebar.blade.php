@@ -52,6 +52,22 @@
             </ul>
         </li>
 
+        {{-- APPLICANT --}}
+        <li class="nav-item">
+            <a class="{{ (request()->is('applicant*')) ? 'nav-link' : 'nav-link collapsed' }}" data-bs-target="#applicant-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Applicant</span>
+                <i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="applicant-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('applicant')}}">
+                        <i class="bi bi-circle"></i><span>List</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         {{-- APPLICATION --}}
         <li class="nav-item">
             <a class="{{ (request()->is('application*')) ? 'nav-link' : 'nav-link collapsed' }}" data-bs-target="#application-nav" data-bs-toggle="collapse" href="#">
